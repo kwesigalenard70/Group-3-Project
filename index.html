@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health</title>
+</head>
+<body>
+
+<header>
+    <h1>Health</h1>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#wellness">Wellness</a>
+        <a href="#bmi">BMI Calculator</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Health is Wealth</h2>
+    <p>Professional care and simple tools to help you live better each and every day.</p>
+</section>
+
+<div class="container">
+
+    <section id="services">
+        <h3>Our Services</h3>
+        <div class="cards">
+            <div class="card">
+                <div class="card-content">
+                    <h4>General Checkup</h4>
+                    <p>Routine health exams to realize issues early and keep you on track with the necessary medication and different healthcare tools needed to keep your life on track. We ensure that no trace of issue is left unattended to and slowly put your health back on track.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600" alt="Healthy food">
+                <div class="card-content">
+                    <h4>Nutrition Counseling</h4>
+                    <p>Personalized meal plans and diet advice from certified nutritionists to enable your strength get right back on track.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600" alt="Mental wellness">
+                <div class="card-content">
+                    <h4>Mental Wellness</h4>
+                    <p>Support for stress, anxiety, and overall mental health just to ensure stability and stadiness to different occurance in life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="wellness">
+        <h3>Activeness is Healthiness</h3>
+        <div class="wellness">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600" alt="Person exercising">
+            <div>
+                <p>Regular exercise improves heart health, mood, and energy levels. 
+                Aim for 30 minutes of activity 5 days a week. Walking, cycling, running and yoga are great places to start. Hydrating the body keeps it going and keeps the body in order. simple sports and exercises are the best first way to go.</p>
+                <ul style="margin-top:10px;">
+                    <li>💧 Drink atleast 2L of water daily to keep hydrated throughout the day.</li>
+                    <li>😴 Get atleast 7 hours or more of sleep to refresh your body.</li>
+                    <li>🥗 Eat more fruits to ease digestion and keep the body running.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="bmi">
+        <h3>BMI Calculator</h3>
+        <div class="calculator">
+            <label>Weight (kg):</label>
+            <input type="number" id="weight" placeholder="e.g. 70">
+            <label>Height (m):</label>
+            <input type="number" step="0.01" id="height" placeholder="e.g. 1.75">
+            <button onclick="calcBMI()">Calculate BMI</button>
+            <p id="result" style="margin-top:10px; font-weight:600;"></p>
+        </div>
+    </section>
+
+    <section id="contact">
+</div>
+
+<footer>
+    <p>© 2026 Hopkinsmedicine.org. Health well secured.</p>
+</footer>
+
+<script>
+function calcBMI() {
+    let w = parseFloat(document.getElementById('weight').value);
+    let h = parseFloat(document.getElementById('height').value);
+    let result = document.getElementById('result');
+    
+    if (!w || !h || h <= 0) {
+        result.textContent = "Please enter a valid weight and height.";
+        return;
+    }
+    
+    let bmi = w / (h * h);
+    let category = bmi < 18.5 ? "Underweight" : bmi < 24.9 ? "Normal weight" : bmi < 29.9 ? "Overweight" : "Obese";
+    
+    result.textContent = `Your BMI is ${bmi.toFixed(1)} - ${category}`;
+}
+</script>
+
+</body>
+</html>
