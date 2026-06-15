@@ -1,0 +1,277 @@
+/* =============================================================
+   COLOURS & BASE
+   Hopkins navy (#002d72) is the brand colour. We set the page
+   font, remove default spacing, and define a centred .wrap that
+   every section uses to line its content up to the same width.
+   ============================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+  line-height: 1.5;
+}
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;      /* centres the content */
+  padding: 0 20px;     /* side breathing room */
+}
+a { color: #0067b6; }
+
+/* =============================================================
+   UTILITY BAR  (top strip)
+   Navy background, small white links pushed to the right with flex.
+   ============================================================= */
+.utility-bar {
+  background-color: #002d72;
+}
+.utility-inner {
+  display: flex;
+  justify-content: flex-end;  /* push links to the right */
+  gap: 20px;
+  padding: 8px 20px;
+}
+.utility-bar a {
+  color: white;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* =============================================================
+   HEADER  (logo + nav + search)
+   White background. flexbox spreads the three pieces across the row,
+   align-items: center lines them up vertically.
+   ============================================================= */
+.site-header {
+  border-bottom: 1px solid #dddddd;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+}
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #002d72;
+}
+.logo span {
+  font-weight: normal;   /* "Medicine" lighter than "Johns Hopkins" */
+}
+.main-nav a {
+  color: #002d72;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+.main-nav a:hover {
+  color: #0067b6;
+}
+.search input {
+  padding: 6px 10px;
+  border: 1px solid #cccccc;
+}
+.search button {
+  padding: 6px 12px;
+  background-color: #002d72;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* =============================================================
+   ALERT BANNER
+   A pale yellow strip to draw attention to a notice.
+   ============================================================= */
+.alert {
+  background-color: #fff4d6;
+  border-top: 3px solid #e0a800;
+  padding: 12px 0;
+  font-size: 15px;
+}
+
+/* =============================================================
+   HERO  (big featured area)
+   Navy background, white text. flexbox makes two columns:
+   the text and the image placeholder, side by side.
+   ============================================================= */
+.hero {
+  background-color: #002d72;
+  color: white;
+  padding: 50px 0;
+}
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.hero-text {
+  flex: 1;     /* take up the available space on the left */
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+  color: #9ec4e8;
+}
+.hero-text h1 {
+  font-size: 34px;
+  margin: 8px 0 12px;
+}
+.btn {
+  display: inline-block;
+  margin-top: 16px;
+  background-color: white;
+  color: #002d72;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.hero-image {
+  flex: 1;                       /* equal width to the text column */
+  height: 240px;
+  background-color: #1f5fa8;     /* stand-in for a real photo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cfe0f3;
+}
+
+/* =============================================================
+   QUICK ACTIONS  (four task tiles)
+   CSS Grid: repeat(4, 1fr) makes four equal columns.
+   ============================================================= */
+.actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 40px auto;
+}
+.action {
+  display: block;
+  background-color: #f2f4f7;
+  padding: 20px;
+  text-decoration: none;
+  color: #333333;
+  border-top: 3px solid #002d72;
+}
+.action:hover {
+  background-color: #e8eef7;
+}
+.action h3 {
+  color: #002d72;
+  margin-bottom: 6px;
+}
+
+/* =============================================================
+   FEATURED CARDS  (three promo cards)
+   A grid of three columns, each card has an image area + body.
+   ============================================================= */
+.featured {
+  margin: 40px auto;
+}
+.featured h2 {
+  color: #002d72;
+  margin-bottom: 20px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.card {
+  border: 1px solid #e0e0e0;
+}
+.card-img {
+  height: 150px;
+  background-color: #1f5fa8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cfe0f3;
+}
+.card-body {
+  padding: 16px;
+}
+.card-body h3 {
+  color: #002d72;
+  margin-bottom: 8px;
+}
+.card-body a {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* =============================================================
+   NEWS  (simple list)
+   ============================================================= */
+.news {
+  margin: 40px auto;
+}
+.news h2 {
+  color: #002d72;
+  margin-bottom: 14px;
+}
+.news ul {
+  list-style: none;     /* remove bullets */
+}
+.news li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+.news a {
+  text-decoration: none;
+}
+
+/* =============================================================
+   FOOTER  (link columns + bottom bar)
+   Navy background. Grid lays the four link columns evenly.
+   ============================================================= */
+.site-footer {
+  background-color: #002d72;
+  color: white;
+  margin-top: 50px;
+}
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 40px 20px;
+}
+.col h4 {
+  margin-bottom: 12px;
+  border-bottom: 1px solid #2a5298;
+  padding-bottom: 6px;
+}
+.col a {
+  display: block;       /* each link on its own line */
+  color: #cfe0f3;
+  text-decoration: none;
+  padding: 4px 0;
+  font-size: 14px;
+}
+.col a:hover {
+  color: white;
+}
+.footer-bottom {
+  background-color: #001b45;
+  padding: 14px 0;
+  font-size: 13px;
+}
+
+/* =============================================================
+   RESPONSIVE  (phones: stack everything into one column)
+   ============================================================= */
+@media (max-width: 800px) {
+  .header-inner { flex-direction: column; gap: 12px; }
+  .hero-inner { flex-direction: column; }
+  .actions { grid-template-columns: 1fr 1fr; }
+  .cards { grid-template-columns: 1fr; }
+  .footer-cols { grid-template-columns: 1fr 1fr; }
+}
