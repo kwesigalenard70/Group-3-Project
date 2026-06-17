@@ -1,0 +1,307 @@
+/* ============================================================
+   Hopkins Medicine Research — Stylesheet
+   Palette drawn from Johns Hopkins brand guidelines:
+   Heritage Blue (primary), Spirit Blue (accent), Academic Gold (highlight)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Lora:ital@1&display=swap');
+
+:root {
+  /* Color tokens */
+  --heritage-blue: #002D72;
+  --heritage-blue-dark: #001b47;
+  --spirit-blue: #0072CE;
+  --blue-tint: #EAF1FA;
+  --gold: #CBA052;
+  --gold-bright: #E6B94D;
+  --ink: #1A1F2B;
+  --gray-700: #4B5563;
+  --gray-400: #9AA3B2;
+  --gray-200: #E4E8EE;
+  --gray-100: #F5F7FA;
+  --white: #FFFFFF;
+
+  /* Type */
+  --font-display: 'Work Sans', system-ui, sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+
+  /* Layout */
+  --max-width: 1120px;
+  --radius: 10px;
+  --shadow-sm: 0 1px 3px rgba(0, 45, 114, 0.08);
+  --shadow-md: 0 12px 28px rgba(0, 45, 114, 0.12);
+  --transition: 0.25s ease;
+}
+
+/* ---------- Reset & base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-display);
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--heritage-blue);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--spirit-blue);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+section {
+  padding: 4.5rem 1.5rem;
+}
+
+section > h2 {
+  font-size: 1.9rem;
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+section > h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin: 0.9rem auto 0;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+section > p {
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  color: var(--gray-700);
+  font-size: 1.05rem;
+}
+
+/* ---------- Header & nav ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 3px solid var(--gold);
+  box-shadow: var(--shadow-sm);
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+header h1 {
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+header nav ul {
+  display: flex;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+}
+
+header nav a {
+  color: var(--heritage-blue);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--transition);
+}
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width var(--transition);
+}
+
+header nav a:hover {
+  color: var(--spirit-blue);
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------- About ---------- */
+#about {
+  background: var(--blue-tint);
+}
+
+#about p {
+  max-width: 760px;
+}
+
+/* ---------- Research grid ---------- */
+.research-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.research-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-top: 4px solid var(--heritage-blue);
+  border-radius: var(--radius);
+  padding: 2.25rem 1.25rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--heritage-blue);
+  min-height: 130px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.research-card:hover {
+  transform: translateY(-4px);
+  border-top-color: var(--gold);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- Publications ---------- */
+#publications {
+  background: var(--gray-100);
+}
+
+.publications-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.publication-card {
+  background: var(--white);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.publication-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.publication-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.publication-card h3 em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--heritage-blue);
+}
+
+.publication-card p {
+  color: var(--gray-700);
+  font-size: 0.92rem;
+}
+
+/* ---------- Contact ---------- */
+#contact {
+  text-align: center;
+}
+
+#contact p {
+  margin-bottom: 0.4rem;
+}
+
+#contact p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--heritage-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 1.75rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+footer p {
+  opacity: 0.9;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .research-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .publications-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav ul {
+    gap: 1rem;
+  }
+
+  section {
+    padding: 3rem 1.25rem;
+  }
+
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
