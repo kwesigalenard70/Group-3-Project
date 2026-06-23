@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Johns Hopkins Medicine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+       <!--Uses flexbox to lay the links in a row.
+  <div class="utility-bar">
+    <div class="wrap utility-inner">
+      <a href="#">Find a Doctor</a>
+      <a href="#">Appointments</a>
+      <a href="#">Locations</a>
+      <a href="#">Pay a Bill</a>
+      <a href="#">myChart Login</a>
+    </div>
+  </div>
+
+  <!-- HEADER: the logo (left), main navigation (middle) and search box (right).
+       flexbox spreads these three across one row. -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="logo">Johns Hopkins <span>Medicine</span></div>
+
+      <nav class="main-nav">
+        <a href="#">Patient Care</a>
+        <a href="#">Health</a>
+        <a href="#">Research</a>
+        <a href="#">School of Medicine</a>
+        <a href="#">Careers</a>
+      </nav>
+
+      <!-- A search form. The button does nothing here (no backend) -->
+      <form class="search" onsubmit="return false;">
+        <input type="text" placeholder="Search">
+        <button type="submit">Go</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- ALERT BANNER: a site-wide notice. Just a coloured strip with text. -->
+  <div class="alert">
+    <div class="wrap">
+      <strong>Health Alert:</strong> Measles cases are rising in several areas.
+      If you think you may have measles, call your doctor before visiting a
+      clinic or emergency room.
+    </div>
+  </div>
+
+  <!-- HERO: the big featured area. Two columns (text + image) made with flexbox. -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Top Ranked</p>
+        <h1>Among the Best Hospitals in the Nation</h1>
+        <p>The Johns Hopkins Hospital is consistently recognised for excellence
+           in patient care across many specialties.</p>
+        <a class="btn" href="#">Learn More</a>
+      </div>
+      <!-- Placeholder for a real photo. Swap this div for an <img> later. -->
+      <div class="hero-image">Image</div>
+    </div>
+  </section>
+
+  <!-- QUICK ACTIONS: four "task" tiles. CSS Grid lays them in equal columns. -->
+  <section class="wrap actions">
+    <a class="action" href="#">
+      <h3>Find a Doctor</h3>
+      <p>Search our physicians by name or specialty.</p>
+    </a>
+    <a class="action" href="#">
+      <h3>Request an Appointment</h3>
+      <p>Schedule a visit online.</p>
+    </a>
+    <a class="action" href="#">
+      <h3>Patient Information</h3>
+      <p>Plan and prepare for your visit.</p>
+    </a>
+    <a class="action" href="#">
+      <h3>Make a Gift</h3>
+      <p>Support our mission of care and research.</p>
+    </a>
+  </section>
+
+  <!-- FEATURED CARDS: promoted content. A grid of three cards,
+       each with an image area, a title, text and a link. -->
+  <section class="wrap featured">
+    <h2>Explore Johns Hopkins Medicine</h2>
+    <div class="cards">
+      <article class="card">
+        <div class="card-img">Image</div>
+        <div class="card-body">
+          <h3>Patient Care</h3>
+          <p>World-class care close to home, with locations across the region.</p>
+          <a href="#">Read more</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img">Image</div>
+        <div class="card-body">
+          <h3>Research</h3>
+          <p>Discoveries that change how medicine is practised worldwide.</p>
+          <a href="#">Read more</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img">Image</div>
+        <div class="card-body">
+          <h3>Health Information</h3>
+          <p>Trusted articles and tips to help you stay healthy.</p>
+          <a href="#">Read more</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- NEWS: a simple list of recent stories. -->
+  <section class="wrap news">
+    <h2>Latest News</h2>
+    <ul>
+      <li><a href="#">New research advances cancer treatment</a></li>
+      <li><a href="#">Tips for a healthy heart at any age</a></li>
+      <li><a href="#">Johns Hopkins opens new outpatient centre</a></li>
+    </ul>
+  </section>
+
+  <!-- FOOTER: large footer with several link columns, then a bottom bar.
+       Grid arranges the columns; the bottom bar holds the copyright. -->
+  <footer class="site-footer">
+    <div class="wrap footer-cols">
+      <div class="col">
+        <h4>Patient Care</h4>
+        <a href="#">Find a Doctor</a>
+        <a href="#">Locations</a>
+        <a href="#">Appointments</a>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">Our History</a>
+        <a href="#">Leadership</a>
+        <a href="#">Newsroom</a>
+      </div>
+      <div class="col">
+        <h4>For Professionals</h4>
+        <a href="#">Refer a Patient</a>
+        <a href="#">Careers</a>
+        <a href="#">Education</a>
+      </div>
+      <div class="col">
+        <h4>Connect</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">Make a Gift</a>
+        <a href="#">Newsletter</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="wrap">
+        <p>&copy; 2026 Johns Hopkins Medicine. Group 3 class assignment.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
