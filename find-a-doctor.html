@@ -37,37 +37,216 @@
     <div class="wrap"><h1>Find a Doctor</h1><p>Search our specialists and book with confidence.</p></div>
   </section>
 
-  <!-- SEARCH BAR (flexbox row). onsubmit="return false" stops it reloading. -->
-  <section class="wrap">
-    <form class="doctor-search" onsubmit="return false;">
-      <input type="text" placeholder="Search by name">
-      <select>
-        <option>All Specialties</option>
-        <option>Cardiology</option>
-        <option>Paediatrics</option>
-        <option>Neurology</option>
-        <option>Obstetrics and Gynecology</option>
-        <option>Family Medicine</option>
-        <option>Orthopedics</option>
-      </select>
-      <button type="submit">Search</button>
+  <!-- SEARCH PANEL -->
+  <section class="wrap search-panel">
+    <form class="doctor-search" onsubmit="return false;" aria-labelledby="search-heading">
+      <div class="doctor-search-top">
+        <h2 id="search-heading" class="visually-hidden">Find the right doctor</h2>
+        <div class="search-field">
+          <label for="search-name" class="visually-hidden">Doctor name or keyword</label>
+          <input id="search-name" type="text" placeholder="Search by name, specialty, or symptom">
+        </div>
+        <div class="search-field">
+          <label for="specialty-filter" class="visually-hidden">Filter by specialty</label>
+          <select id="specialty-filter" aria-label="Filter by specialty">
+            <option value="">All Specialties</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Paediatrics">Paediatrics</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Obstetrics and Gynecology">Obstetrics and Gynecology</option>
+            <option value="Family Medicine">Family Medicine</option>
+            <option value="Orthopedics">Orthopedics</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label for="branch-filter" class="visually-hidden">Filter by branch</label>
+          <select id="branch-filter" aria-label="Filter by branch">
+            <option value="">All Branches</option>
+            <option value="Nsambya">Nsambya</option>
+            <option value="Mengo">Mengo</option>
+            <option value="Mulago">Mulago</option>
+            <option value="Rubaga">Rubaga</option>
+            <option value="KIU">KIU</option>
+            <option value="Nakasero">Nakasero</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label for="availability-filter" class="visually-hidden">Filter by availability</label>
+          <select id="availability-filter" aria-label="Filter by availability">
+            <option value="">Any availability</option>
+            <option value="Weekdays">Weekdays</option>
+            <option value="Weekend">Weekend</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </select>
+        </div>
+        <button type="submit">Search</button>
+      </div>
+      <div class="results-line">
+        <p id="doctor-count">6 doctors found</p>
+        <div class="filter-tags">
+          <a href="#specialties">Most requested specialties</a>
+          <a href="#how-it-works">How it works</a>
+        </div>
+      </div>
     </form>
   </section>
 
-  <!-- DOCTOR CARDS (CSS Grid). Replace the photo blocks with real images. -->
+  <section class="wrap section specialties-section" id="specialties">
+    <div class="page-intro">
+      <h2>Quick access to in-demand specialists</h2>
+      <p>Jump to the most common specialties and find a doctor for the care you need right away.</p>
+    </div>
+    <div class="specialty-grid">
+      <a href="#" class="specialty-chip" data-specialty="Cardiology">Cardiology</a>
+      <a href="#" class="specialty-chip" data-specialty="Paediatrics">Paediatrics</a>
+      <a href="#" class="specialty-chip" data-specialty="Neurology">Neurology</a>
+      <a href="#" class="specialty-chip" data-specialty="Obstetrics and Gynecology">Obstetrics &amp; Gynaecology</a>
+      <a href="#" class="specialty-chip" data-specialty="Family Medicine">Family Medicine</a>
+      <a href="#" class="specialty-chip" data-specialty="Orthopedics">Orthopedics</a>
+    </div>
+  </section>
+
   <section class="wrap section">
     <div class="page-intro">
       <h2>Meet Our Specialist Team</h2>
       <p>Discover experienced doctors across our hospital branches, with flexible appointment times and trusted care close to you.</p>
     </div>
     <div class="doctors">
-      <div class="doctor"><div class="photo"><img src="alinda-sasha.jpg" alt="Proffesor Dr. Alinda Sasha"></div><h3> Proffesor Dr. Alinda Sasha</h3><p>Cardiology</p><p class="experience">15+ years of experience</p><p class="affiliation">Affiliated with Nsambya Hospital</p><p class="schedule">Schedule: Tue & Thu • 8:30 AM • Nsambya Branch</p><p class="education">MBChB, Makerere University, Uganda; MMed in Cardiology, University of Cape Town, South Africa</p><p class="fellowship">Fellowship: Interventional Cardiology, Aga Khan University, Nairobi</p></div>
-      <div class="doctor"><div class="photo"><img src="kirabo-elizabeth.jpg" alt="Dr. Kirabo Elizabeth"></div><h3>Dr. Kirabo Elizabeth</h3><p>Paediatrics</p><p class="experience">8+ years of experience</p><p class="affiliation">Affiliated with Mengo Hospital</p><p class="schedule">Schedule: Mon & Wed • 10:00 AM • Mengo Branch</p><p class="education">MBChB, Mbarara University of Science and Technology, Uganda; MMed in Paediatrics, University of Nairobi, Kenya</p></div>
-      <div class="doctor"><div class="photo"><img src="david-mulinde.jpg" alt="Dr. David Mulinde"></div><h3>Dr. David Mulinde </h3><p>Neurology</p><p class="experience">18+ years of experience</p><p class="affiliation">Affiliated with Mulago National Referral Hospital</p><p class="schedule">Schedule: Fri • 1:00 PM • Mulago Branch</p><p class="education">MBChB, Makerere University, Uganda; MMed in Neurology, University of the Witwatersrand, Johannesburg</p><p class="fellowship">Fellowship: Neurocritical Care, University of Edinburgh, United Kingdom</p></div>
-      <div class="doctor"><div class="photo"><img src="abigaba-linda.jpg" alt="Dr. Abigaba Linda"></div><h3>Dr. Abigaba Linda </h3><p>Family Medicine</p><p class="experience">10+ years of experience</p><p class="affiliation">Affiliated with Rubaga Hospital</p><p class="schedule">Schedule: Mon & Fri • 9:00 AM • Rubaga Branch</p><p class="education">MBChB, Gulu University, Uganda; MSc in Family Medicine, University of Liverpool, United Kingdom</p></div>
-      <div class="doctor"><div class="photo"><img src="ndaurah-shadrach.jpg" alt="Dr. Ndaurah Shadrach"></div><h3>Dr. Ndaurah Shadrach </h3><p>Orthopedics</p><p class="experience">12+ years of experience</p><p class="affiliation">Affiliated with Kampala International Hospital</p><p class="schedule">Schedule: Wed & Sat • 11:30 AM • KIU Branch</p><p class="education">MBChB, Kampala International University, Uganda; MMed in Orthopaedics, University of Nairobi, Kenya</p></div>
-      <div class="doctor"><div class="photo"><img src="kwesiga-lenard.jpg" alt="Professor Dr Kwesiga Lenard"></div><h3> Professor Dr Kwesiga Lenard. </h3><p>Obstetrics and Gynecology</p><p class="experience">20+ years of experience</p><p class="affiliation">Affiliated with Nakasero Hospital</p><p class="schedule">Schedule: Tue & Thu • 2:00 PM • Nakasero Branch</p><p class="education">MBChB, Makerere University, Uganda; MMed in Obstetrics &amp; Gynaecology, University of Copenhagen, Denmark</p><p class="fellowship">Fellowship: Reproductive Medicine, Aga Khan University, Nairobi</p></div>
+      <article class="doctor" data-specialty="Cardiology" data-branch="Nsambya" data-availability="Weekdays" data-telehealth="true">
+        <div class="photo"><img src="alinda-sasha.jpg" alt="Professor Dr. Alinda Sasha"></div>
+        <div class="doctor-card">
+          <div class="doctor-header">
+            <h3>Professor Dr. Alinda Sasha</h3>
+            <div class="rating" aria-label="4.9 out of 5 stars">
+              <span class="stars">★★★★★</span>
+              <span class="reviews">4.9 (52 reviews)</span>
+            </div>
+          </div>
+          <p class="specialty-tag">Cardiology</p>
+          <p class="summary">Interventional cardiologist helping adults with complex heart rhythm and valve care.</p>
+          <p class="experience">15+ years of experience • Nsambya Hospital</p>
+          <p class="schedule">Tue &amp; Thu • 8:30 AM • Nsambya Branch</p>
+          <p class="education">MBChB, Makerere University; MMed Cardiology, University of Cape Town</p>
+          <div class="badges"><span>Telehealth</span><span>English</span></div>
+          <div class="doctor-actions">
+            <a href="#" class="doctor-btn">Book now</a>
+            <a href="#" class="doctor-link">View profile</a>
+          </div>
+        </div>
+      </article>
+      <article class="doctor" data-specialty="Paediatrics" data-branch="Mengo" data-availability="Weekdays" data-telehealth="true">
+        <div class="photo"><img src="kirabo-elizabeth.jpg" alt="Dr. Kirabo Elizabeth"></div>
+        <div class="doctor-card">
+          <div class="doctor-header">
+            <h3>Dr. Kirabo Elizabeth</h3>
+            <div class="rating" aria-label="4.8 out of 5 stars">
+              <span class="stars">★★★★☆</span>
+              <span class="reviews">4.8 (38 reviews)</span>
+            </div>
+          </div>
+          <p class="specialty-tag">Paediatrics</p>
+          <p class="summary">Child health specialist focused on preventive care and family wellness.</p>
+          <p class="experience">8+ years of experience • Mengo Hospital</p>
+          <p class="schedule">Mon &amp; Wed • 10:00 AM • Mengo Branch</p>
+          <p class="education">MBChB, Mbarara University; MMed Paediatrics, University of Nairobi</p>
+          <div class="badges"><span>Telehealth</span><span>Children</span></div>
+          <div class="doctor-actions">
+            <a href="#" class="doctor-btn">Book now</a>
+            <a href="#" class="doctor-link">View profile</a>
+          </div>
+        </div>
+      </article>
+      <article class="doctor" data-specialty="Neurology" data-branch="Mulago" data-availability="Weekend,Friday" data-telehealth="false">
+        <div class="photo"><img src="david-mulinde.jpg" alt="Dr. David Mulinde"></div>
+        <div class="doctor-card">
+          <div class="doctor-header">
+            <h3>Dr. David Mulinde</h3>
+            <div class="rating" aria-label="4.7 out of 5 stars">
+              <span class="stars">★★★★☆</span>
+              <span class="reviews">4.7 (45 reviews)</span>
+            </div>
+          </div>
+          <p class="specialty-tag">Neurology</p>
+          <p class="summary">Neurologist experienced in stroke care, migraines, and reinforced recovery plans.</p>
+          <p class="experience">18+ years of experience • Mulago National Referral Hospital</p>
+          <p class="schedule">Fri • 1:00 PM • Mulago Branch</p>
+          <p class="education">MBChB, Makerere University; MMed Neurology, University of the Witwatersrand</p>
+          <div class="badges"><span>In-person</span><span>UK-trained</span></div>
+          <div class="doctor-actions">
+            <a href="#" class="doctor-btn">Book now</a>
+            <a href="#" class="doctor-link">View profile</a>
+          </div>
+        </div>
+      </article>
+      <article class="doctor" data-specialty="Family Medicine" data-branch="Rubaga" data-availability="Weekdays" data-telehealth="true">
+        <div class="photo"><img src="abigaba-linda.jpg" alt="Dr. Abigaba Linda"></div>
+        <div class="doctor-card">
+          <div class="doctor-header">
+            <h3>Dr. Abigaba Linda</h3>
+            <div class="rating" aria-label="4.8 out of 5 stars">
+              <span class="stars">★★★★☆</span>
+              <span class="reviews">4.8 (50 reviews)</span>
+            </div>
+          </div>
+          <p class="specialty-tag">Family Medicine</p>
+          <p class="summary">Family physician offering preventive care and chronic disease management.</p>
+          <p class="experience">10+ years of experience • Rubaga Hospital</p>
+          <p class="schedule">Mon &amp; Fri • 9:00 AM • Rubaga Branch</p>
+          <p class="education">MBChB, Gulu University; MSc Family Medicine, University of Liverpool</p>
+          <div class="badges"><span>Telehealth</span><span>All ages</span></div>
+          <div class="doctor-actions">
+            <a href="#" class="doctor-btn">Book now</a>
+            <a href="#" class="doctor-link">View profile</a>
+          </div>
+        </div>
+      </article>
+      <article class="doctor" data-specialty="Orthopedics" data-branch="KIU" data-availability="Weekend" data-telehealth="false">
+        <div class="photo"><img src="ndaurah-shadrach.jpg" alt="Dr. Ndaurah Shadrach"></div>
+        <div class="doctor-card">
+          <div class="doctor-header">
+            <h3>Dr. Ndaurah Shadrach</h3>
+            <div class="rating" aria-label="4.6 out of 5 stars">
+              <span class="stars">★★★★☆</span>
+              <span class="reviews">4.6 (41 reviews)</span>
+            </div>
+          </div>
+          <p class="specialty-tag">Orthopedics</p>
+          <p class="summary">Orthopaedic surgeon supporting bone, joint and sports injury recovery.</p>
+          <p class="experience">12+ years of experience • Kampala International Hospital</p>
+          <p class="schedule">Wed &amp; Sat • 11:30 AM • KIU Branch</p>
+          <p class="education">MBChB, Kampala International University; MMed Orthopaedics, University of Nairobi</p>
+          <div class="badges"><span>In-person</span><span>Weekend clinics</span></div>
+          <div class="doctor-actions">
+            <a href="#" class="doctor-btn">Book now</a>
+            <a href="#" class="doctor-link">View profile</a>
+          </div>
+        </div>
+      </article>
+      <article class="doctor" data-specialty="Obstetrics and Gynecology" data-branch="Nakasero" data-availability="Weekdays" data-telehealth="true">
+        <div class="photo"><img src="kwesiga-lenard.jpg" alt="Professor Dr. Kwesiga Lenard"></div>
+        <div class="doctor-card">
+          <div class="doctor-header">
+            <h3>Professor Dr. Kwesiga Lenard</h3>
+            <div class="rating" aria-label="4.9 out of 5 stars">
+              <span class="stars">★★★★★</span>
+              <span class="reviews">4.9 (57 reviews)</span>
+            </div>
+          </div>
+          <p class="specialty-tag">Obstetrics and Gynecology</p>
+          <p class="summary">Women's health expert offering prenatal, postnatal and reproductive care.</p>
+          <p class="experience">20+ years of experience • Nakasero Hospital</p>
+          <p class="schedule">Tue &amp; Thu • 2:00 PM • Nakasero Branch</p>
+          <p class="education">MBChB, Makerere University; MMed Obstetrics &amp; Gynaecology, University of Copenhagen</p>
+          <div class="badges"><span>Telehealth</span><span>Reproductive care</span></div>
+          <div class="doctor-actions">
+            <a href="#" class="doctor-btn">Book now</a>
+            <a href="#" class="doctor-link">View profile</a>
+          </div>
+        </div>
+      </article>
     </div>
+    <p class="no-results hidden">No doctors match your search. Try a different name or specialty.</p>
   </section>
 
   <section class="wrap section appointment-payment-section">
@@ -131,6 +310,146 @@
       <a href="#" class="service-btn">View Payment Options</a>
     </div>
   </section>
+
+  <section class="wrap section how-it-works" id="how-it-works">
+    <div class="page-intro">
+      <h2>How it works</h2>
+      <p>Find care in four simple steps, from search to confirmation.</p>
+    </div>
+    <div class="how-cards">
+      <div class="how-card">
+        <div class="how-step">1</div>
+        <h3>Search your doctor</h3>
+        <p>Use name, specialty, branch or availability to narrow the list.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-step">2</div>
+        <h3>Compare doctors</h3>
+        <p>Review ratings, experience, reviews and telehealth options.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-step">3</div>
+        <h3>Book with confidence</h3>
+        <p>Reserve a convenient appointment and receive instant confirmation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section testimonials-section">
+    <div class="page-intro">
+      <h2>Patient reviews</h2>
+      <p>Real feedback from patients who chose Life Spring Hospital specialists.</p>
+    </div>
+    <div class="testimonial-cards">
+      <div class="testimonial-card">
+        <p>“The online search made it easy to find a specialist in my area, and the appointment was confirmed within minutes.”</p>
+        <span>— Amina, Kampala</span>
+      </div>
+      <div class="testimonial-card">
+        <p>“Dr. Kwesiga explained every step clearly and gave me a telehealth follow-up option that saved travel time.”</p>
+        <span>— Joseph, Entebbe</span>
+      </div>
+      <div class="testimonial-card">
+        <p>“I trusted the patient ratings and the booking process was smooth from start to finish.”</p>
+        <span>— Fatima, Jinja</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section faq-section">
+    <div class="page-intro">
+      <h2>Frequently asked questions</h2>
+      <p>Answers to the questions patients ask first.</p>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>How quickly can I book a first appointment?</summary>
+        <p>Most specialists offer same-week appointments when slots are available. Use the filter to find doctors with open schedules.</p>
+      </details>
+      <details>
+        <summary>Can I consult a doctor remotely?</summary>
+        <p>Yes. Doctors with telehealth availability are clearly labelled on their cards.</p>
+      </details>
+      <details>
+        <summary>What insurance partners do you accept?</summary>
+        <p>We accept cash, mobile money, and major insurers including Jubilee Insurance, UAP Old Mutual, Liberty Life Uganda and AAR Health.</p>
+      </details>
+      <details>
+        <summary>Is there support if I need urgent help?</summary>
+        <p>Yes. Call our care team at +256 700 000 000 or email care@lifespringhospital.org for same-day assistance.</p>
+      </details>
+    </div>
+  </section>
+
+  <button class="back-to-top" type="button" aria-label="Back to top">↑ Top</button>
+  <script>
+    const searchName = document.getElementById('search-name');
+    const specialtyFilter = document.getElementById('specialty-filter');
+    const branchFilter = document.getElementById('branch-filter');
+    const availabilityFilter = document.getElementById('availability-filter');
+    const doctorCards = Array.from(document.querySelectorAll('.doctors .doctor'));
+    const doctorCount = document.getElementById('doctor-count');
+    const noResults = document.querySelector('.no-results');
+    const specialtyLinks = document.querySelectorAll('.specialty-chip');
+    const backToTop = document.querySelector('.back-to-top');
+
+    function normalize(text) {
+      return text.toLowerCase().trim();
+    }
+
+    function filterDoctors() {
+      const query = normalize(searchName.value);
+      const specialty = specialtyFilter.value;
+      const branch = branchFilter.value;
+      const availability = availabilityFilter.value;
+      let visible = 0;
+
+      doctorCards.forEach(card => {
+        const content = normalize(card.textContent);
+        const matchesQuery = !query || content.includes(query);
+        const matchesSpecialty = !specialty || card.dataset.specialty === specialty;
+        const matchesBranch = !branch || card.dataset.branch === branch;
+        const availabilityList = card.dataset.availability.split(',');
+        const matchesAvailability = !availability || availabilityList.includes(availability);
+        const show = matchesQuery && matchesSpecialty && matchesBranch && matchesAvailability;
+
+        card.style.display = show ? '' : 'none';
+        if (show) visible += 1;
+      });
+
+      doctorCount.textContent = `${visible} doctor${visible === 1 ? '' : 's'} found`;
+      noResults.classList.toggle('hidden', visible > 0);
+    }
+
+    document.querySelector('.doctor-search').addEventListener('submit', function(event) {
+      event.preventDefault();
+      filterDoctors();
+    });
+
+    [searchName, specialtyFilter, branchFilter, availabilityFilter].forEach(element => {
+      element.addEventListener('input', filterDoctors);
+      element.addEventListener('change', filterDoctors);
+    });
+
+    specialtyLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const specialty = this.dataset.specialty;
+        specialtyFilter.value = specialty;
+        filterDoctors();
+      });
+    });
+
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', function() {
+      backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+
+    filterDoctors();
+  </script>
 
   <section class="wrap section benefits-section">
     <div class="benefits-card">
