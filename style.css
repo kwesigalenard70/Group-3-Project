@@ -79,11 +79,6 @@ img { max-width: 100%; display: block; }
    HOME HERO  (big two-column feature)
    ============================================================= */
 .hero { background-color: var(--forest); color: #fff; padding: 64px 0; }
-<<<<<<< HEAD
-.hero-image, .card-img { overflow: hidden; }
-.hero-image img, .card-img img { width: 100%; height: 100%; object-fit: cover; }
-=======
->>>>>>> 0e4a676762878b6518230dfd33cc3e29da323c4b
 .hero-inner { display: flex; align-items: center; gap: 48px; }
 .hero-text { flex: 1; }
 .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 700; color: var(--sage); }
@@ -138,7 +133,6 @@ img { max-width: 100%; display: block; }
 .card-img {
   height: 168px; background-color: #6fae8f;
   display: flex; align-items: center; justify-content: center; color: #eaf3ee; font-weight: 600;
-  overflow: hidden;
 }
 .card-img img {
   width: 100%;
