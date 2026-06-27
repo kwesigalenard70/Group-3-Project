@@ -208,6 +208,13 @@ img { max-width: 100%; display: block; }
   color: var(--ink);
   line-height: 1.5;
 }
+.doctor .doctorate {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--forest);
+  font-weight: 700;
+  line-height: 1.5;
+}
 .doctor .fellowship {
   margin-top: 4px;
   font-size: 13px;
