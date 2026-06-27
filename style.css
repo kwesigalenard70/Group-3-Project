@@ -133,6 +133,7 @@ img { max-width: 100%; display: block; }
 .card-img {
   height: 168px; background-color: #6fae8f;
   display: flex; align-items: center; justify-content: center; color: #eaf3ee; font-weight: 600;
+  overflow: hidden;
 }
 .card-img img {
   width: 100%;
