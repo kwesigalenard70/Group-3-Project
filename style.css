@@ -357,9 +357,10 @@ img { max-width: 100%; display: block; }
   padding: 24px;
   margin: 36px auto;
   box-shadow: var(--shadow);
-  position: sticky;
-  top: 16px;
-  z-index: 2;
+  /* Use normal flow so the search panel doesn't overlay page content when scrolling */
+  position: relative;
+  top: auto;
+  z-index: 0;
 }
 
 .doctor-search-top {
