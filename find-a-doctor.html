@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Find a Doctor | Life Spring Hospital</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Minimal modal styles for profile and booking */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:60}
+    .modal-overlay.open{display:flex}
+    .modal{background:#fff;max-width:760px;width:94%;padding:1.25rem;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.2);max-height:90vh;overflow:auto}
+    .modal .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem}
+    .modal .modal-body p{margin:.5rem 0}
+    .modal .modal-actions{display:flex;gap:.5rem;justify-content:flex-end;margin-top:1rem}
+    .modal-close{background:none;border:0;font-size:1.25rem;cursor:pointer}
+    .hidden{display:none}
+  </style>
 </head>
 <body>
 
@@ -306,7 +317,6 @@
         <li>Liberty Life Uganda</li>
         <li>AAR Health</li>
       </ul>
-      <a href="#" class="service-btn">View Payment Options</a>
     </div>
   </section>
 
@@ -381,6 +391,46 @@
   </section>
 
   <button class="back-to-top" type="button" aria-label="Back to top">↑ Top</button>
+  <!-- Profile and booking modals (populated and controlled by script) -->
+  <div id="profile-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal" role="document">
+      <div class="modal-header">
+        <h3 id="profile-name">Doctor</h3>
+        <button class="modal-close" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body" id="profile-body">
+        <!-- content inserted via JS -->
+      </div>
+      <div class="modal-actions">
+        <button class="modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="booking-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal" role="document">
+      <div class="modal-header">
+        <h3 id="booking-title">Book Appointment</h3>
+        <button class="modal-close" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="booking-form">
+          <input type="hidden" name="doctor" id="booking-doctor">
+          <p id="booking-schedule"></p>
+          <label>Full name<br><input name="patientName" required></label>
+          <br>
+          <label>Phone<br><input name="phone" required></label>
+          <br>
+          <label>Preferred date/time<br><input name="preferredDate" type="datetime-local"></label>
+          <div class="modal-actions">
+            <button type="submit">Confirm Booking</button>
+            <button type="button" class="modal-close">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script>
     const searchName = document.getElementById('search-name');
     const specialtyFilter = document.getElementById('specialty-filter');
@@ -391,6 +441,9 @@
     const noResults = document.querySelector('.no-results');
     const specialtyLinks = document.querySelectorAll('.specialty-chip');
     const backToTop = document.querySelector('.back-to-top');
+    const profileModal = document.getElementById('profile-modal');
+    const bookingModal = document.getElementById('booking-modal');
+    const bookingForm = document.getElementById('booking-form');
 
     function normalize(text) {
       return text.toLowerCase().trim();
@@ -437,6 +490,93 @@
         specialtyFilter.value = specialty;
         filterDoctors();
       });
+    });
+
+    // Open doctor profile
+    document.querySelectorAll('.doctor-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const card = this.closest('.doctor');
+        if (!card || !profileModal) return;
+        const name = card.querySelector('h3')?.textContent || '';
+        const specialty = card.dataset.specialty || '';
+        const summary = card.querySelector('.summary')?.textContent || '';
+        const experience = card.querySelector('.experience')?.textContent || '';
+        const education = card.querySelector('.education')?.textContent || '';
+        const doctorate = card.querySelector('.doctorate')?.textContent || '';
+        const schedule = card.querySelector('.schedule')?.textContent || '';
+        const badges = Array.from(card.querySelectorAll('.badges span')).map(s=>s.textContent).join(', ');
+        const imgSrc = card.querySelector('.photo img')?.getAttribute('src');
+
+        document.getElementById('profile-name').textContent = name;
+        const body = document.getElementById('profile-body');
+        body.innerHTML = '';
+        if (imgSrc) body.innerHTML += `<p><img src="${imgSrc}" alt="${name}" style="max-width:120px;border-radius:6px;margin-right:8px;float:left"></p>`;
+        body.innerHTML += `<p><strong>Specialty:</strong> ${specialty}</p>`;
+        body.innerHTML += `<p><strong>Summary:</strong> ${summary}</p>`;
+        if (experience) body.innerHTML += `<p><strong>Experience:</strong> ${experience}</p>`;
+        if (education) body.innerHTML += `<p><strong>Education:</strong> ${education}</p>`;
+        if (doctorate) body.innerHTML += `<p><strong>${doctorate}</strong></p>`;
+        if (schedule) body.innerHTML += `<p><strong>Schedule:</strong> ${schedule}</p>`;
+        if (badges) body.innerHTML += `<p><strong>Badges:</strong> ${badges}</p>`;
+
+        profileModal.classList.add('open');
+      });
+    });
+
+    // Book now behavior
+    document.querySelectorAll('.doctor-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const card = this.closest('.doctor');
+        if (!card || !bookingModal) return;
+        const name = card.querySelector('h3')?.textContent || '';
+        const schedule = card.querySelector('.schedule')?.textContent || '';
+        document.getElementById('booking-doctor').value = name;
+        document.getElementById('booking-schedule').textContent = schedule;
+        bookingForm.querySelector('[name=patientName]').value = '';
+        bookingForm.querySelector('[name=phone]').value = '';
+        bookingForm.querySelector('[name=preferredDate]').value = '';
+        bookingModal.classList.add('open');
+      });
+    });
+
+    // Booking form submit
+    if (bookingForm) {
+      bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const data = new FormData(bookingForm);
+        const booking = {
+          doctor: data.get('doctor'),
+          patientName: data.get('patientName'),
+          phone: data.get('phone'),
+          preferredDate: data.get('preferredDate')
+        };
+        // For this demo we show a confirmation message
+        const body = bookingModal.querySelector('.modal-body');
+        body.innerHTML = `<p>Thank you, <strong>${booking.patientName}</strong>. Your request to book with <strong>${booking.doctor}</strong> has been received.</p><p>Preferred time: ${booking.preferredDate || 'Not specified'}</p><div class="modal-actions"><button class="modal-close">Close</button></div>`;
+        console.log('Booking request', booking);
+      });
+    }
+
+    // Modal close handlers
+    document.querySelectorAll('.modal-close').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const overlay = this.closest('.modal-overlay');
+        if (overlay) overlay.classList.remove('open');
+      });
+    });
+
+    // Close when clicking overlay background
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) overlay.classList.remove('open');
+      });
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(o=>o.classList.remove('open'));
     });
 
     backToTop.addEventListener('click', function() {
