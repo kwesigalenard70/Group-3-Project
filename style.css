@@ -820,3 +820,11 @@ img { max-width: 100%; display: block; }
   .footer-cols { grid-template-columns: 1fr 1fr; }
   .search-panel { position: static; top: auto; }
 }
+/* Force all leadership card images to have uniform shapes and dimensions */
+.card-img img {
+    width: 100%;
+    height: 250px;       /* Forces every photo to have the exact same height */
+    object-fit: cover;   /* Magic rule: Crops and centers the photos proportionally so they never stretch or squash */
+    object-position: top center; /* Centers the focus on the faces */
+    display: block;
+}

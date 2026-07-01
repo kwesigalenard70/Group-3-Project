@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Life Spring Hospital</title>
+  <!-- Only the shared stylesheet. (Removed the extra Merriweather/Inter fonts
+       and the duplicate link — the shared style.css already loads our fonts.) -->
   <link rel="stylesheet" href="style.css">
- <!-- Google Fonts: Merriweather (display) + Inter (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ===== UNIFORM HEADER (same as every page) ===== -->
   <div class="utility-bar">
     <div class="wrap utility-inner">
       <a href="find-a-doctor.html">Appointments</a>
@@ -35,193 +32,99 @@
       </nav>
     </div>
   </header>
-  <!-- ════════════════════════════════════════════
-       ABOUT HERO
-  ═════════════════════════════════════════════ -->
-  <section class="about-hero" id="about">
-    <div class="container">
-      <div class="hero-text">
-        <span class="eyebrow">About Us</span>
-        <h1>Where Medicine<br>Meets <span>Mission</span></h1>
-        <p>
-          For over a century we have united world-class research, education, and
-          patient care under one roof — advancing health for our patients,
-          our community, and beyond.
-        </p>
-      </div>
 
-      <div class="hero-stats">
-        <div class="stat-card">
-          <div class="number">#1</div>
-          <div class="label">Ranked Hospital in the Nation</div>
-        </div>
-        <div class="stat-card">
-          <div class="number">11</div>
-          <div class="label">Nationally Ranked Specialties</div>
-        </div>
-        <div class="stat-card">
-          <div class="number">40K+</div>
-          <div class="label">Staff & Faculty</div>
-        </div>
-        <div class="stat-card">
-          <div class="number">130+</div>
-          <div class="label">Years of Discovery</div>
-        </div>
+  <!-- PAGE BANNER (shared style, like the other inner pages) -->
+  <section class="page-banner">
+    <div class="wrap"><h1>About Us</h1><p>Where medicine meets mission.</p></div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="wrap section">
+    <p class="lead">Life Spring Hospital unites compassionate patient care,
+       education and research under one roof &mdash; advancing health for our
+       patients, our community and beyond.</p>
+  </section>
+
+  <!-- STATS (shared 4-tile grid) -->
+  <section class="wrap section">
+    <div class="actions">
+      <div class="action"><h3>#1</h3><p>Top ranked hospital in the region</p></div>
+      <div class="action"><h3>15+</h3><p>Specialties under one roof</p></div>
+      <div class="action"><h3>600+</h3><p>Staff &amp; faculty</p></div>
+      <div class="action"><h3>20+</h3><p>Years of dedicated care</p></div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION (shared .vm band — same statements as the home page) -->
+  <section class="vm">
+    <div class="wrap vm-inner">
+      <div class="vm-box">
+        <h2>Our Mission</h2>
+        <p>To inspire and enable lifelong health through proactive,
+           patient-centred care, advanced medicine, and a dedicated
+           commitment to total wellness.</p>
+      </div>
+      <div class="vm-box">
+        <h2>Our Vision</h2>
+        <p>To redefine healthcare by transforming Life Spring Hospital into a
+           beacon of vitality, empowering individuals and communities to live
+           their healthiest, most vibrant lives.</p>
       </div>
     </div>
   </section>
 
-
-  <!-- ════════════════════════════════════════════
-       MISSION & VALUES
-  ═════════════════════════════════════════════ -->
-  <section class="mission" id="mission">
-    <div class="container">
-      <div class="inner">
-        <!-- Left: Mission statement -->
-        <div>
-          <span class="eyebrow">Our Mission</span>
-          <h2>Healing. Discovery.<br>Education.</h2>
-          <p>
-            We are committed to improving the health of the community and the world
-            by setting the standard of excellence in medical education, research,
-            and clinical care.
-          </p>
-          <p>
-            Our faculty, students, and staff work together to translate laboratory
-            discoveries into treatments, and treatments into healthier lives — for
-            patients here at home and across the globe.
-          </p>
-        </div>
-
-        <!-- Right: Core values -->
-        <ul class="values-list">
-          <li>
-            <span class="icon">🔬</span>
-            <div>
-              <strong>Scientific Excellence</strong>
-              <span>Rigorous inquiry and evidence-based practice drive every decision we make at the bedside and bench.</span>
-            </div>
-          </li>
-          <li>
-            <span class="icon">🤝</span>
-            <div>
-              <strong>Patient-Centred Care</strong>
-              <span>Every patient is a person, not a chart. We listen, partner, and advocate across the full care journey.</span>
-            </div>
-          </li>
-          <li>
-            <span class="icon">🌍</span>
-            <div>
-              <strong>Inclusive Community</strong>
-              <span>Diversity of thought, background, and experience makes our research more powerful and our care more equitable.</span>
-            </div>
-          </li>
-          <li>
-            <span class="icon">💡</span>
-            <div>
-              <strong>Relentless Innovation</strong>
-              <span>We chase the questions no one else has answered yet — because lives depend on what we discover tomorrow.</span>
-            </div>
-          </li>
-        </ul>
-      </div>
+  <!-- VALUES (shared 4-tile grid) -->
+  <section class="wrap section">
+    <h2>Our Values</h2>
+    <div class="actions">
+      <div class="action"><h3>&#128300; Scientific Excellence</h3><p>Rigorous, evidence-based practice guides every decision at the bedside and the bench.</p></div>
+      <div class="action"><h3>&#129309; Patient-Centred Care</h3><p>Every patient is a person, not a chart. We listen, partner and advocate throughout the journey.</p></div>
+      <div class="action"><h3>&#127757; Inclusive Community</h3><p>Diversity of thought and background makes our care more equitable and our work stronger.</p></div>
+      <div class="action"><h3>&#128161; Relentless Innovation</h3><p>We pursue the questions others have not answered yet &mdash; because lives depend on it.</p></div>
     </div>
   </section>
 
+  <!-- HISTORY (shared bordered list) -->
+  <section class="wrap section">
+    <h2>Our History</h2>
+    <ul class="list-block">
+      <li><strong>Our beginning</strong> &mdash; Life Spring Hospital opens its doors to serve the community.</li>
+      <li><strong>A school is born</strong> &mdash; we begin training local doctors, nurses and pharmacists.</li>
+      <li><strong>Advancing care</strong> &mdash; new specialties and a dedicated research unit are added.</li>
+      <li><strong>Today</strong> &mdash; serving the region with compassionate, modern healthcare.</li>
+    </ul>
+  </section>
 
-  <!-- ════════════════════════════════════════════
-       HISTORY TIMELINE
-  ═════════════════════════════════════════════ -->
-  <section class="history" id="history">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Our History</span>
-        <h2>A Legacy Built Over Generations</h2>
-        <p class="sub">
-          From a single hospital in Baltimore to a global health system —
-          each decade a new chapter in medicine.
-        </p>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="dot">1889</div>
-          <h3>Doors Open</h3>
-          <p>The Johns Hopkins Hospital admits its first patients in Baltimore, Maryland.</p>
+  <!-- LEADERSHIP (shared 3-card grid) -->
+  <section class="wrap section">
+    <h2>Leadership</h2>
+    <div class="cards">
+      <article class="card">
+        <div class="card-img"><img src="Ibrahim.jpg" alt="Dr. Ibrahim Ssengendo"></div>
+        <div class="card-body">
+          <h3>Dr. Ibrahim Ssengendo</h3>
+          <p><strong>President &amp; CEO</strong><br>Leading system-wide strategy and partnerships to expand access to world-class care.</p>
         </div>
-        <div class="timeline-item">
-          <div class="dot">1893</div>
-          <h3>Medical School</h3>
-          <p>The School of Medicine opens, pioneering the residency training model still used worldwide.</p>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="Osei.jpg" alt="Dr. Marcus Osei"></div>
+        <div class="card-body">
+          <h3>Dr. Marcus Osei</h3>
+          <p><strong>Chief Medical Officer</strong><br>Championing quality, safety and the integration of cutting-edge clinical research.</p>
         </div>
-        <div class="timeline-item">
-          <div class="dot">1970s</div>
-          <h3>Research Era</h3>
-          <p>Landmark discoveries in oncology and cardiology reshape global treatment standards.</p>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="Kusiima.jpg" alt="Dr. Kusiima Martha"></div>
+        <div class="card-body">
+          <h3>Dr. Kusiima Martha</h3>
+          <p><strong>Dean, School of Medicine</strong><br>Shaping the next generation of physicians through innovative education and mentorship.</p>
         </div>
-        <div class="timeline-item">
-          <div class="dot">Today</div>
-          <h3>Global Reach</h3>
-          <p>Six hospitals, hundreds of clinics, and partnerships in more than 100 countries.</p>
-        </div>
-      </div>
+      </article>
     </div>
   </section>
 
-
-  <!-- ════════════════════════════════════════════
-       LEADERSHIP
-  ═════════════════════════════════════════════ -->
-  <section class="leadership" id="leadership">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Leadership</span>
-        <h2>The People Who Lead Our Mission</h2>
-        <p class="sub">
-          Our executive team brings decades of clinical, research, and administrative
-          expertise to every challenge we face.
-        </p>
-      </div>
-
-  
-      <div class="cards-grid">
-        <div class="leader-card">
-          <div class="card-body">
-          <div class="card-img">
-             <img src="Ibrahim.jpg" alt="Dr. Ibrahim Ssengendo">
-          </div>
-            <div class="role">President & CEO</div>
-            <h3>Dr. Ibrahim Ssengendo</h3>
-            <p>Leading system-wide strategy and partnerships to expand access to world-class care.</p>
-          </div>
-        </div>
-
-        <div class="leader-card">
-          <div class="card-body">
-             <div class="card-img">
-             <img src="download (1).jpg" alt="Dr. Marcus Osei">
-             </div>
-            <div class="role">Chief Medical Officer</div>
-            <h3>Dr. Marcus Osei</h3>
-            <p>Championing quality, safety, and the integration of cutting-edge clinical research.</p>
-          </div>
-        </div>
-
-        <div class="leader-card">
-          <div class="card-img">
-             <img src="Kusiima.jpg" alt="Dr. Kusiima Martha">
-          </div>
-          <div class="card-body">
-            <div class="role">Dean, School of Medicine</div>
-            <h3>Dr. Kusiima Martha</h3>
-            <p>Shaping the next generation of physicians through innovative education and mentorship.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-<footer class="site-footer">
+  <!-- ===== UNIFORM FOOTER (same as every page) ===== -->
+  <footer class="site-footer">
     <div class="wrap footer-cols">
       <div class="col">
         <h4>Patient Care</h4>
