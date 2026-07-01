@@ -37,19 +37,38 @@ h1, h2, h3, h4 { font-family: 'Fraunces', Georgia, serif; line-height: 1.15; fon
 .wrap { max-width: 1140px; margin: 0 auto; padding: 0 22px; }
 a { color: var(--green); }
 img { max-width: 100%; display: block; }
+html { scroll-padding-top: 120px; }
 
 /* =============================================================
    UTILITY BAR  (uniform header — top strip)
    ============================================================= */
-.utility-bar { background-color: var(--forest); }
-.utility-inner { display: flex; justify-content: flex-end; gap: 22px; padding: 9px 22px; }
+.utility-bar {
+  background-color: var(--forest);
+  position: sticky;   /* stays pinned to the top */
+  top: 0;
+  z-index: 60;
+}
+.utility-inner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 22px;
+  height: 40px;
+  padding: 0 22px;
+}
 .utility-bar a { color: #d8e8df; font-size: 13px; text-decoration: none; font-weight: 500; }
 .utility-bar a:hover { color: #fff; }
 
 /* =============================================================
    HEADER + MAIN MENU  (uniform on every page)
    ============================================================= */
-.site-header { background: var(--surface); border-bottom: 1px solid var(--line); }
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  position: sticky;   /* stays pinned while scrolling */
+  top: 40px;          /* directly under the 40px utility bar */
+  z-index: 50;
+}
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
   padding: 18px 22px; flex-wrap: wrap; gap: 12px;
@@ -240,6 +259,7 @@ img { max-width: 100%; display: block; }
 }
 .doctor h3 { color: var(--forest); font-size: 19px; margin-bottom: 4px; }
 .doctor p { font-size: 14px; color: var(--muted); }
+.doctor .photo {
   width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 18px; background: #6fae8f;
   display: flex; align-items: center; justify-content: center; color: #eaf3ee; font-weight: 600;
   overflow: hidden; box-shadow: 0 4px 12px rgba(34, 60, 48, 0.15); border: 3px solid var(--spring);
